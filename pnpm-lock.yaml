@@ -6,6 +6,7 @@ specifiers:
   '@tensorflow/tfjs-backend-wasm': ^3.19.0
   '@tensorflow/tfjs-converter': ^3.19.0
   '@tensorflow/tfjs-core': ^3.19.0
+  prettier: 2.7.1
   seedrandom: ^3.0.5
   vite: ^3.0.9
   vite-plugin-static-copy: ^0.7.0
@@ -19,6 +20,7 @@ dependencies:
   seedrandom: 3.0.5
 
 devDependencies:
+  prettier: 2.7.1
   vite: 3.0.9
   vite-plugin-static-copy: 0.7.0_vite@3.0.9
 
@@ -722,6 +724,12 @@ packages:
       nanoid: 3.3.4
       picocolors: 1.0.0
       source-map-js: 1.0.2
+    dev: true
+
+  /prettier/2.7.1:
+    resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
     dev: true
 
   /queue-microtask/1.2.3:
