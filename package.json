@@ -1,20 +1,24 @@
 {
-    "scripts": {
-        "dev": "vite",
-        "build": "vite build",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "dependencies": {
-        "@tensorflow-models/mobilenet": "^2.1.0",
-        "@tensorflow/tfjs": "^3.19.0",
-        "@tensorflow/tfjs-backend-wasm": "^3.19.0",
-        "@tensorflow/tfjs-converter": "^3.19.0",
-        "@tensorflow/tfjs-core": "^3.19.0",
-        "seedrandom": "^3.0.5"
-    },
-    "devDependencies": {
-        "prettier": "2.7.1",
-        "vite": "^3.0.9",
-        "vite-plugin-static-copy": "^0.7.0"
-    }
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "format": "prettier --write --cache ."
+  },
+  "dependencies": {
+    "@tensorflow-models/coco-ssd": "^2.2.2",
+    "@tensorflow-models/mobilenet": "^2.1.0",
+    "@tensorflow/tfjs": "^3.19.0",
+    "@tensorflow/tfjs-backend-cpu": "^3.19.0",
+    "@tensorflow/tfjs-backend-wasm": "^3.19.0",
+    "@tensorflow/tfjs-backend-webgl": "^3.19.0",
+    "@tensorflow/tfjs-converter": "^3.19.0",
+    "@tensorflow/tfjs-core": "^3.19.0",
+    "seedrandom": "^3.0.5"
+  },
+  "devDependencies": {
+    "prettier": "2.7.1",
+    "vite": "^3.0.9",
+    "vite-plugin-static-copy": "^0.7.0"
+  },
+  "packageManager": "pnpm@7.9.0"
 }

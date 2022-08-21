@@ -1,72 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Image Classification</title>
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/firacode/6.2.0/fira_code.min.css"
-            integrity="sha512-MbysAYimH1hH2xYzkkMHB6MqxBqfP0megxsCLknbYqHVwXTCg9IqHbk+ZP/vnhO8UEW6PaXAkKe2vQ+SWACxxA=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        />
-        <style>
-            body {
-                font-family: "Fira Code";
-                border-color: #474035;
-                background-color: #010405;
-                color: #a9a8a5;
-            }
-            .tfjs-container {
-                margin: auto;
-                max-width: 40%;
-            }
-        </style>
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Classification</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/firacode/6.2.0/fira_code.min.css"
+      integrity="sha512-MbysAYimH1hH2xYzkkMHB6MqxBqfP0megxsCLknbYqHVwXTCg9IqHbk+ZP/vnhO8UEW6PaXAkKe2vQ+SWACxxA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        font-family: "Fira Code";
+        border-color: #474035;
+        background-color: #010405;
+        color: #a9a8a5;
+      }
+      .tfjs-container {
+        margin: auto;
+        max-width: fit-content;
+      }
+      .image-display {
+        display: grid;
+        grid-template-columns: 260px 260px;
+      }
+      img,
+      canvas,
+      input,
+      button {
+        margin: 5px;
+      }
+    </style>
+  </head>
 
-    <body>
-        <script>
-            var loadFile = function (event) {
-                var image = document.getElementById("img");
-                image.src = URL.createObjectURL(event.target.files[0]);
-            };
-        </script>
+  <body>
+    <script>
+      var loadFile = function (event) {
+        var image = document.getElementById("img");
+        image.src = URL.createObjectURL(event.target.files[0]);
+      };
+      var randomImage = function (event) {
+        var image = document.getElementById("img");
+        var seed = Math.floor(Math.random() * 10);
+        image.src = "https://picsum.photos/200/300?random=" + seed;
+      };
+    </script>
 
-        <div class="tfjs-container">
-            <section class="title-area">
-                <h1>Image Classification</h1>
-            </section>
+    <div class="tfjs-container">
+      <section class="title-area">
+        <h1>Image Playground</h1>
+      </section>
 
-            <section>
-                <p class="section-head">Image used</p>
-                <img
-                    id="img"
-                    src="https://picsum.photos/300/200?random=1"
-                    width="224px"
-                    crossorigin="anonymous"
-                />
-                <br />
-                <input
-                    id="img-input"
-                    type="file"
-                    accept="image/png, image/jpeg"
-                    onchange="loadFile(event)"
-                />
-            </section>
-
-            <section>
-                <p class="section-head">Status</p>
-                <div id="status"></div>
-            </section>
-
-            <section>
-                <p class="section-head">Result</p>
-                <div id="result"></div>
-            </section>
-
-            <script type="module" src="main.js"></script>
+      <section class="image-display">
+        <div class="origin">
+          <label>Original Image</label>
+          <img id="img" width="224px" crossorigin="anonymous" />
+          <input
+            id="img-input"
+            type="file"
+            accept="image/png, image/jpeg"
+            onchange="loadFile(event)"
+          />
+          <button onclick="randomImage(event)">random image</button>
         </div>
-    </body>
+
+        <div class="detected">
+          <label>Detected Image</label>
+          <canvas id="canvas" width="224"></canvas>
+        </div>
+      </section>
+
+      <section>
+        <p class="section-head">Models Status</p>
+        <div id="status"></div>
+      </section>
+
+      <section>
+        <p class="section-head">Classification Result</p>
+        <div id="result"></div>
+      </section>
+
+      <script type="module" src="main.js"></script>
+    </div>
+  </body>
 </html>

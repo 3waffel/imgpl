@@ -1,14 +1,5 @@
-import { viteStaticCopy } from "vite-plugin-static-copy";
+import { defineConfig } from "vite";
 
-export default {
-    plugins: [
-        viteStaticCopy({
-            targets: [
-                {
-                    src: "node_modules/@tensorflow/tfjs-backend-wasm/dist/*.wasm",
-                    dest: "/",
-                },
-            ],
-        }),
-    ],
-};
+export default defineConfig({
+    base: "",
+});
