@@ -45,8 +45,20 @@
       };
       var randomImage = function (event) {
         var image = document.getElementById("img");
-        var seed = Math.floor(Math.random() * 20);
-        image.src = "https://picsum.photos/200/300?random=" + seed;
+        var tags = [
+          "burger",
+          "car",
+          "fish",
+          "fruit",
+          "horse",
+          "house",
+          "people",
+          "steak",
+          "tree",
+          "wine",
+        ];
+        var seed = Math.floor(Math.random() * 10);
+        image.src = "https://source.unsplash.com/random/200×300/?" + tags[seed] + "&" + performance.now();
       };
     </script>
 
